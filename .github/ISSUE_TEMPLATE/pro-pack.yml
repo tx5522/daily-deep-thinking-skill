@@ -1,0 +1,45 @@
+name: Pro Pack / 个性化配置询价
+description: 了解 30-Day Pro Pack 或申请个性化配置
+title: "[Pro Pack] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢关注。这个 Issue 是公开的，请勿填写邮箱、支付信息、真实姓名或其他隐私数据。这里仅用于确认需求范围；任何付款信息都不应出现在 GitHub Issue 中。
+  - type: dropdown
+    id: option
+    attributes:
+      label: 你感兴趣的选项
+      options:
+        - 30 天数字训练包（US$15 / ¥79）
+        - 个性化 Skill 配置（US$15 / ¥99）
+        - 数字包 + 个性化配置（US$25 / ¥169）
+    validations:
+      required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: 主要使用的 AI 工具
+      options:
+        - ChatGPT
+        - Codex
+        - Claude
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 你希望训练或配置解决什么问题？
+      description: 请只描述目标和主题，不要包含个人隐私。
+      placeholder: 例如：我希望每天围绕工作决策进行 10–14 轮讨论，并保留复盘框架。
+    validations:
+      required: true
+  - type: checkboxes
+    id: public
+    attributes:
+      label: 公开信息确认
+      options:
+        - label: 我知道这个 Issue 是公开的，未填写隐私或支付信息。
+          required: true
