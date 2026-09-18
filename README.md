@@ -1,79 +1,66 @@
 # Daily Deep Thinking Skill
 
-A portable AI thinking-coach Skill for short, evidence-aware daily reasoning sessions.
+一个面向现实世界的 AI 深度思考训练 Skill。
 
-The core idea is simple: **start from a concrete role and a real decision, then work toward theory**. Instead of opening with an abstract question such as “How should monetary policy balance growth and inflation?”, the Skill prefers a situation the user can actually inhabit:
+它不是“每日知识推送”，也不是机械的苏格拉底问答。它每天给出 3–5 个具体、可代入的现实问题，让用户先做判断，再通过至少 10 轮高质量互动、事实研究、反方观点、情境变化和理论解释，形成可迁移的思考框架。
 
-> You run a manufacturing company. Your borrowing rate has risen from 3% to 5.5%, demand is uncertain, and a new production line would take three years to pay back. Do you borrow to expand now, delay the investment, or choose a smaller plan? Why?
+## v1.3 核心变化
 
-The discussion can then uncover interest-rate transmission, expectations, incentives, risk, policy, and relevant literature naturally.
+- 将默认讨论长度从 2–4 轮调整为 **至少 10 轮有效互动，通常 10–14 轮**。
+- 明确“有效互动”的定义，避免为了凑轮数重复追问。
+- 新增五阶段深度讨论结构：直觉 → 隐含前提 → 证据/反例 → 迁移压力测试 → 模型修正。
+- 未达到 10 轮前不因“已经有不错框架”主动收尾，除非用户明确要求停止。
+- 每轮仍尽量只推进一个关键问题，兼顾深度与认知负担。
+- 收尾增加“哪些条件会让结论反转”，强化框架的边界意识。
 
-## What it does
+## 核心入口
 
-- Produces 3–5 distinct daily thinking questions.
-- Prefers **role + realistic situation + constraints + decision** over abstract theory-first prompts.
-- Uses current evidence when recent facts materially affect the question.
-- Runs a short Socratic discussion with **one key question per turn**.
-- Defaults to **2–4 high-value follow-up exchanges**, rather than an endless interrogation.
-- Separates evidence, author views, other scholars' views, AI inference, and constructed examples.
-- Stops once the user has a better causal model or decision framework, even if the issue remains unresolved.
+从 **身份 + 场景 + 约束 + 决策** 开始，而不是从抽象政策或理论名词开始。
 
-## Good question design
+例如，不问：
 
-A useful candidate usually has four parts:
+> 为什么央行要加息？
 
-1. **Identity** — Who are you in this situation?
-2. **Reality** — What is actually happening?
-3. **Constraint** — What makes the choice difficult?
-4. **Decision** — What would you do, and what tradeoff are you accepting?
+而问：
 
-Real events can motivate the question, but the session should not collapse into a news summary. Books, theories, public policy, and academic concepts are introduced after they help explain the user's reasoning.
+> 你经营一家制造企业，原本准备借 3000 万扩产。贷款利率从 3% 升到 5.5%，原材料仍在涨价，但订单增速开始放缓。你会继续扩产还是暂停？为什么？
 
-## Session flow
+AI 从用户的真实判断出发，逐步引出利率、需求、通胀、融资成本和政策传导。
+
+## 讨论节奏
+
+默认 10–14 轮有效互动：
+
+1. 1–2 轮：直觉与决策
+2. 3–4 轮：隐含前提与边界
+3. 5–7 轮：现实证据、反例、替代解释
+4. 8–9 轮：情境变化与迁移压力测试
+5. 10+ 轮：模型修正与综合
+
+用户随时可以说“收尾”提前结束。
+
+## 信息来源标签
+
+讨论中按需区分：
+
+- 【作者原文】
+- 【作者观点】
+- 【现实证据】
+- 【其他学者观点】
+- 【AI 推论】
+- 【AI 构造案例】
+
+## 目录
 
 ```text
-current context + current evidence
-            ↓
-3–5 concrete candidate questions
-            ↓
-user chooses one
-            ↓
-user states an initial judgment/model
-            ↓
-2–4 rounds of focused questioning / teaching / counterargument / research
-            ↓
-compact synthesis + unresolved uncertainty + observation/test
+.
+├── SKILL.md
+├── README.md
+├── CHANGELOG.md
+├── LICENSE
+└── examples/
+    └── questions.md
 ```
-
-## Files
-
-- `SKILL.md` — the complete portable Skill contract.
-- `README.md` — project overview and usage philosophy.
-- `CHANGELOG.md` — version history.
-- `LICENSE` — MIT License.
-
-## Using the Skill
-
-Install or load `SKILL.md` in a Skill-compatible agent environment, then invoke it for requests such as:
-
-- “开始今天的每日深度思考。”
-- “给我几个今天值得深入想的问题。”
-- “继续昨天那个经济学问题。”
-- “不要直接告诉我答案，带我一步一步推理。”
-
-For scheduled use, a typical instruction is:
-
-> Every morning, start a Daily Deep Thinking session. Give me 3–5 concrete candidate questions first and wait for me to choose before beginning the discussion.
-
-## Design principles
-
-This Skill intentionally avoids several common failure modes: abstract questions with no decision context, fake “counterintuitive” hooks, long lecture-first answers, multiple stacked questions in a single turn, treating an author's opinion as evidence, and continuing the dialogue after the useful reasoning work is already complete.
-
-It is designed to improve the user's model, not to make decisions for the user.
-
-## Version
-
-Current version: **1.2.0**
 
 ## License
 
