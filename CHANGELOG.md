@@ -1,32 +1,26 @@
 # Changelog
 
-All notable changes to this project are documented here.
+## 1.3.0
 
-## [1.2.0] - 2026-09-17
+- 将默认讨论深度从 2–4 轮提升为至少 10 轮有效互动，通常 10–14 轮。
+- 新增“有效互动”定义，重复确认或换句话重问不计入轮数。
+- 新增五阶段讨论结构：直觉判断、隐含前提、证据与反例、迁移压力测试、模型修正。
+- 明确第 10 轮前不得因框架初步成形而主动收尾；用户明确要求结束时除外。
+- 强化情境扰动和跨场景迁移，避免只得到单题答案。
+- 收尾新增“结论反转条件”，帮助用户理解框架边界。
 
-### Changed
 
-- Reworked candidate-question design around **identity/role + realistic situation + constraints + decision problem**.
-- Made concrete real-world judgment the preferred entry point; abstract theory, books, and policy now emerge later when they help explain the user's reasoning.
-- Added an explicit filter against questions that are merely factual, rhetorical, or abstract without a meaningful tradeoff.
-- Reinforced the **one key question per turn** rule.
-- Kept sessions intentionally short: normally 2–4 high-value follow-up exchanges, followed by synthesis and closure.
-- Clarified that real events are useful entry points rather than a reason to turn the session into a news digest.
-- Added a neutral-agency rule for political and electoral topics: provide sourced information and let the user make the political judgment.
+## 1.2.0
 
-## [1.1.0] - 2026-09-17
+- 强化“身份 + 场景 + 约束 + 决策”选题结构。
+- 明确禁止优先用抽象政策问题开场。
+- 新增每轮只推进一个关键问题的节奏控制。
+- 强化候选题主题与角色多样性。
+- 强化最新事件仅作为结构性问题入口的规则。
+- 优化主动收尾机制，减少过度追问。
 
-### Changed
+## 1.1.0
 
-- Improved daily candidate prompts to begin from concrete identities and decision contexts rather than abstract policy or theory.
-- Added stronger evidence-lane separation between author quotations, author views, real-world evidence, other scholars' views, AI inference, and constructed examples.
-- Refined the short-session stopping rule so the coach closes once the user's model has materially improved.
-
-## [1.0.0] - 2026-09-16
-
-### Added
-
-- Initial Daily Thinking Coach workflow.
-- 3–5 daily candidate questions with optional current-event grounding.
-- Socratic questioning, brief teaching, counterargument, collaborative reasoning, and current-fact research.
-- Compact end-of-session synthesis and light thinking-profile guidance.
+- 候选问题改为现实身份带入式。
+- 默认 2–4 轮高价值互动。
+- 增加信息分层与长期思维画像。
