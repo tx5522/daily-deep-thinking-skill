@@ -1,0 +1,11 @@
+# Real discussion records belong in an authorized private location.
+private/
+sessions/
+progress/
+*.private.md
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.DS_Store
